@@ -1,0 +1,201 @@
+%START package dependency
+\documentclass[12pt]{article}
+\usepackage{pst-all,amssymb,graphicx,marvosym,array,fancyhdr,amsmath,multirow,pdflscape,rotating}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{lato}
+\usepackage{cmbright}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[most]{tcolorbox}
+\usepackage{lastpage}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+%\usepackage{eforms}
+%END package dependency
+
+%START page properties
+\def\dfrac#1#2{\displaystyle{\frac{#1}{#2}}}
+\paperheight=297mm
+\voffset=-1in
+\topmargin=0.7cm
+\headheight=3.5cm
+\headsep=0.5cm
+\textheight=19.7cm
+\paperwidth=210mm
+\hoffset=-1in
+\oddsidemargin=1cm
+\evensidemargin=2.5cm
+\textwidth=19cm
+\marginparsep=0cm
+\marginparwidth=0cm
+\setlength{\parindent}{0pt}
+%END page properties
+
+%START color types
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+%END color types
+
+% START Table creation code
+\newtcolorbox{tableheaderbox}[1][]{colback={airforceblue!20!white}, colframe={airforceblue!20!white}, coltext={coolblack}, sharp corners, arc=2mm, rounded corners=north, height=15mm, width=30mm, valign=center, left=1mm, top=1mm, bottom=1mm, right=1mm, boxsep=0mm, nobeforeafter, halign=center, box align=center, equal height group=tableheader, fontupper=\footnotesize\bfseries} 
+\newtcolorbox{contentbox}[1][]{
+ enhanced jigsaw, boxrule=0pt, colback=white, height=10mm, width=30mm, valign=center, left=1mm, top=1mm,
+bottom=1mm, right=1mm, boxsep=0mm, nobeforeafter, halign=center, box align=center, fontupper=\footnotesize, #1} % use "borderline vertical={1pt}{0pt}{airforceblue!20!white}" for vertical lines
+\newtcolorbox{rulerbox}[1][]{width=30mm, size=minimal, height=0pt, enhanced jigsaw, 
+  sharp corners, borderline horizontal={0.5pt}{0pt}{airforceblue!20!white}, nobeforeafter, #1}
+\newcommand{\fakehline}[1][]{\begin{rulerbox}[#1] \end{rulerbox}}
+% END Table creation code
+
+\begin{document}
+
+%START Header and Footer
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{\footnotesize \sc \begin{tabular}{m{12cm} m{6cm}} \includegraphics[scale=0.32]{genomika2.png} \\
+{\fontseries{eb}\selectfont \textbf{Cliente:}} *NAME* & {\fontseries{eb}\selectfont \textbf{Sexo:}} *SEX* \\
+{\fontseries{eb}\selectfont \textbf{Unidade:}} *UNITY* & {\fontseries{eb}\selectfont \textbf{Nascimento:}} *BIRTH* \\
+{\fontseries{eb}\selectfont \textbf{Atendimento:}} *ATTENDANCE* & {\fontseries{eb}\selectfont \textbf{Data Aten.:}} *ATTEN.DATE* \\
+{\fontseries{eb}\selectfont \textbf{Solicitante:}} *REQUESTER* & {\fontseries{eb}\selectfont \textbf{Local de Coleta:}} *LOCAL* \\
+{\fontseries{eb}\selectfont \textbf{Material:}} *MATERIAL* & {\fontseries{eb}\selectfont \textbf{Data de Coleta:}} *COLL.DATE* \\
+\end{tabular}}
+\renewcommand{\headrulewidth}{0pt}
+%END Header
+
+%START Footer
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize \begin{tabular}{m{11cm} m{7.5cm}}
+{\fontseries{eb}\selectfont \textbf{Responsável Técnico: Dr. João Bosco - CRM 12563 PE}} & {\fontseries{eb}\selectfont \textbf{Genomika Diagnósticos S/A - CRM 2374/PE}} \\
+R. Senador José Henrique, 224, Salas 1301/1303, Emp. Alfred Nobel, Ilha do Leite & www.genomika.com.br \\
+Recife - PE CEP:50070 460, Telefone: +55 81 3125-0505 
+\end{tabular}
+\begin{tabular}{m{18cm}}
+{A interpretação de qualquer teste laboratorial com finalidade diagnóstica ou prognóstica compete exclusivamente ao seu médico e sua análise depende da avaliação conjunta de sua história médica, dados clínicos e resultados de outros exames.}
+\end{tabular}}
+\rfoot{\\[0.15cm] \scriptsize{\today \ \currenttime \ Pág.:\thepage \ de \pageref{LastPage}}}
+%END Footer
+
+%START Title content
+\begin{center}
+{\selectfont\fontseries{eb}\color{coolblack}\LARGE\bfseries *TITLE*}
+\end{center}
+%END Title content
+
+%START Clinical Summary content
+{\selectfont\fontseries{eb}\color{coolblack}\normalsize\bfseries Resumo Clínico}\hfill\break
+*CLIN.SUMMURY*
+\bigskip
+%END Clinical Summary content
+
+%START Summary content
+\tcbset{colback=airforceblue!20!white,colframe=airforceblue!20!white}
+\begin{tcolorbox}
+\textbf{Resumo dos Resultados}\hfill\break
+*SUMMARY*
+\end{tcolorbox}
+\bigskip
+%START Summary content
+
+
+%START Gene Summary content
+{\selectfont\fontseries{eb}\color{coolblack}\normalsize\bfseries Genes Analisados}\hfill\break
+*GENES*
+\bigskip
+%END Gene Summary content
+
+
+%\tcbset{myone/.style={colframe=airforceblue!20!white,halign=center,valign=bottom,center title, equal height group=nobefaf,width=\linewidth/6,nobeforeafter}}
+
+%\begin{tcolorbox}[myone,title={\color{coolblack}\normalsize\bfseries Gene/ Transcrito},before app={\selectfont\fontseries{eb} \color{coolblack}\normalsize \bfseries Variantes Clinicamente Associadas e %Achados Adicionais\\[4pt]}]Box 1\end{tcolorbox}%
+%\begin{tcolorbox}[myone,title={\color{coolblack}\normalsize\bfseries Variante}]Box 2\end{tcolorbox}%
+%\begin{tcolorbox}[myone,title={\color{coolblack}\normalsize\bfseries Exon}]Box 3\end{tcolorbox}%
+%\begin{tcolorbox}[myone,title={\color{coolblack}\normalsize\bfseries Frequência na População}]Box 4\end{tcolorbox}%
+%\begin{tcolorbox}[myone,title={\color{coolblack}\normalsize\bfseries Zigosidade}]Box 5\end{tcolorbox}%
+%\begin{tcolorbox}[myone,title={\color{coolblack}\normalsize\bfseries Classificação}]Box 6\end{tcolorbox}
+%\bigskip\bigskip
+
+
+
+% START Variant table
+{\selectfont\fontseries{eb} \color{coolblack}\normalsize \bfseries Variantes Clinicamente Associadas e Achados Adicionais}
+\begin{center}
+% START Headerboxes
+\begin{tcbraster}[raster columns=6,raster column skip = -0.5pt, raster row skip = 0pt]
+\begin{tableheaderbox} Gene/Transcrito \end{tableheaderbox} \begin{tableheaderbox} Variante \end{tableheaderbox} 
+\begin{tableheaderbox} Exon \end{tableheaderbox} \begin{tableheaderbox} Frequência na População \end{tableheaderbox} \begin{tableheaderbox} Zigosidade \end{tableheaderbox} \begin{tableheaderbox} Classificação \end{tableheaderbox} 
+
+% END Headerboxes
+
+% START 1st row
+\begin{contentbox} *GENE1* \end{contentbox} \begin{contentbox} *NOTATION1* \end{contentbox}
+\begin{contentbox} *EXON1* \end{contentbox} \begin{contentbox} *FREQ1* \end{contentbox} \begin{contentbox} *ZIGO1* \end{contentbox} \begin{contentbox} *CLASS1* \end{contentbox}
+\fakehline\fakehline\fakehline\fakehline\fakehline\fakehline
+% END 1st row
+
+% START 2nd row
+\begin{contentbox} *GENE2* \end{contentbox} \begin{contentbox} *NOTATION2* \end{contentbox}
+\begin{contentbox} *EXON2* \end{contentbox} \begin{contentbox} *FREQ2* \end{contentbox} \begin{contentbox} *ZIGO2* \end{contentbox} \begin{contentbox} *CLASS2* \end{contentbox}
+\fakehline\fakehline\fakehline\fakehline\fakehline\fakehline
+% END 2nd row
+
+% START 3rd row
+\begin{contentbox} *GENE3* \end{contentbox} \begin{contentbox} *NOTATION3* \end{contentbox}
+\begin{contentbox} *EXON3* \end{contentbox} \begin{contentbox} *FREQ3* \end{contentbox} \begin{contentbox} *ZIGO3* \end{contentbox} \begin{contentbox} *CLASS3* \end{contentbox}
+\fakehline\fakehline\fakehline\fakehline\fakehline\fakehline
+% END 3rd row
+
+
+\end{tcbraster}
+\end{center}
+\bigskip
+% END Variant table
+
+%START INTERPRETATION content
+{\selectfont\fontseries{eb}\color{coolblack}\normalsize\bfseries Interpretação}\hfill\break
+Foi encontrada a variante p.(L747\textunderscore T751del) no exon 19 do gene EGFR,  que resulta numa deleção in-frame de 5 aminoácidos da posição 747 a 751 (LREAT). De acordo com a literatura, as deleções neste exon ocorrem em 48 dos casos de tumores positivos para mutações em EGFR. Esta variante está associada com sensibilidade aumentada aos inibidores de EGFR tirosina-quinase. Não foram encontradas outras alterações significativas em outros exons do mesmo gene. sem mutações ativadoras em NRAS são potencialmente sensíveis à terapia com anticorpos anti-EGFR.
+\bigskip
+%END INTERPRETATION content
+
+%START RECOMMENDATION content
+{\selectfont\fontseries{eb}\color{coolblack}\normalsize\bfseries Recomendações}\hfill\break
+*RECOMMENDATION*
+
+\fakehline\fakehline\fakehline\fakehline\fakehline\fakehline
+%END RECOMMENDATION content
+
+%START METHODOLOGY content
+{\selectfont\fontseries{eb}\color{coolblack}\footnotesize\bfseries Metodologia}\hfill\break
+\footnotesize{*METHODOLOGY*}\hfill\break
+%END METHODOLOGY content
+%START LIMITATIONS content
+{\selectfont\fontseries{eb}\color{coolblack}\footnotesize\bfseries Limitações}\hfill\break
+\footnotesize{*LIMITATIONS*}\hfill\break
+%END LIMITATIONS content
+%START COMMENTS content
+{\selectfont\fontseries{eb}\color{coolblack}\footnotesize\bfseries Observações}\hfill\break
+\footnotesize{*COMMENTS*}\hfill\break
+%END COMMENTS content
+%START RECTIFICATION content
+\footnotesize{*RECTIFICATION*}\hfill\break
+%END RECTIFICATION content
+%START REFERENCES content
+{\selectfont\fontseries{eb}\color{coolblack}\footnotesize\bfseries Referências}\hfill\break
+\footnotesize{*REFERENCES*}\hfill\break
+\bigskip
+%END REFERENCES content
+
+Texto texto texto \\
+Texto texto texto \\
+Texto texto texto \\
+Texto texto texto \\
+
+%START SIGNATURE content
+\small{Liberado por *SIGNATUREBY*, em *SIGNATUREDATE*.}\hfill\break
+\small{Certificação Digital:}\hfill\break
+%\sigField{My signature}{5cm}{3cm}
+%END SIGNATURE content
+
+\newpage
+
+Quebra de linha teste
+
+\end{document}
